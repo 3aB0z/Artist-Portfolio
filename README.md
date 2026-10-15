@@ -1,116 +1,32 @@
 # Artist Portfolio
 
-A modern full-stack portfolio and future shop for an independent artist specializing in drawings and handmade clay figures.
+An intimate online gallery for drawings and handmade clay figures. Artist Portfolio brings selected works, stories from the studio, and artwork details together in a quiet, editorial experience.
 
-## Tech Stack
+## Preview
 
-- Laravel 13
-- React
-- TypeScript
-- Inertia.js
-- Tailwind CSS
-- Vite
-- PostgreSQL
+<p align="center">
+  <img src="public/images/artworks/artwork-1.jpg" alt="Featured artwork from Artist Portfolio" width="540">
+</p>
 
-## Development
+<p align="center">
+  <em>A selection of drawings and small sculptural worlds, made by hand.</em>
+</p>
 
-Install dependencies:
+## The experience
 
-```bash
-composer install
-npm install
-```
+- A considered homepage introducing the artist and selected works
+- A browsable gallery with drawing and clay sculpture filters
+- Individual pages for exploring each artwork
+- About and contact pages
+- A responsive layout with artwork-first imagery and restrained visual styling
+- Private content-management screens for artworks, categories, and artwork media
 
-Start the development environment:
+## Built with
 
-```bash
-composer run dev
-```
+Laravel · React · TypeScript · Inertia.js · Tailwind CSS · Vite
 
-Build the frontend:
+## Rights
 
-```bash
-npm run build
-```
+This is a project showcase, not a reusable starter or template. The project’s original source code, design, documentation, and artwork are proprietary and may not be reused without written permission. Third-party packages and assets remain subject to their own licenses.
 
-Run tests:
-
-```bash
-php artisan test
-```
-
-Run code formatting:
-
-```bash
-composer run lint
-```
-
-## Documentation
-
-Project documentation is located in:
-
-```text
-docs/
-├── PROJECT_SPECIFICATION.md
-├── ARCHITECTURE.md
-├── DESIGN_SYSTEM.md
-└── DEVELOPMENT_GUIDELINES.md
-```
-
-Project progress:
-
-```text
-PROJECT_STATUS.md
-```
-
-Project history:
-
-```text
-CHANGELOG.md
-```
-
-## Project Scope
-
-The current website focuses on:
-
-- Drawings
-- Handmade clay figures
-- Artist portfolio
-- Artwork discovery
-- Artwork details
-- Contact
-
-A future admin dashboard will allow the artist to manage website content.
-
-Future functionality may include:
-
-- Artwork management
-- Image management
-- Categories
-- Collections
-- Orders
-- Payments
-- Inventory
-- Commissions
-
-## Architecture
-
-The frontend and backend are intentionally kept in one Laravel application.
-
-```text
-Browser
-   ↓
-Laravel
-   ↓
-Inertia.js
-   ↓
-React
-```
-
-Dynamic content will eventually be stored in the database and managed through the admin dashboard.
-
-## Development Philosophy
-
-Build the current requirements properly while keeping the architecture flexible enough for future features.
-
-Avoid unnecessary dependencies, abstractions, and premature features.
+See [LICENSE](LICENSE) for the full notice.

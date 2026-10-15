@@ -21,7 +21,7 @@ export default function Header() {
                     className="font-display text-[22px] tracking-[0.15em] uppercase"
                     onClick={closeMenu}
                 >
-                    Artist Name
+                    Artist Portfolio
                 </Link>
 
                 <nav className="hidden items-center gap-10 md:flex">

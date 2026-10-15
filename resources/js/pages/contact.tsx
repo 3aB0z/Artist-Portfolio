@@ -36,10 +36,10 @@ export default function Contact() {
                                 </p>
 
                                 <a
-                                    href="mailto:ss.yuko@gmail.com"
+                                    href="mailto:hello@artistportfolio.example"
                                     className="mt-2 inline-block font-display text-2xl transition-colors hover:text-terracotta"
                                 >
-                                    ss.yuko@gmail.com
+                                    hello@artistportfolio.example
                                 </a>
                             </div>
 
@@ -49,10 +49,11 @@ export default function Contact() {
                                 </p>
 
                                 <a
-                                    href="https://www.instagram.com/ss.yuko"
+                                    href="https://example.com/artist-portfolio"
                                     className="mt-2 inline-block border-b border-ink pb-1 font-sans text-[13px] tracking-widest uppercase transition-colors hover:border-terracotta hover:text-terracotta"
+                                    title="Temporary link"
                                 >
-                                    Instagram
+                                    Instagram (temporary)
                                 </a>
                             </div>
 

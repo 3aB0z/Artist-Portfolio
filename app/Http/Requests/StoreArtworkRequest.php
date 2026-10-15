@@ -17,7 +17,6 @@ class StoreArtworkRequest extends FormRequest
             'slug' => ['required', 'string', 'max:255', 'unique:artworks,slug'],
             'title' => ['required', 'string', 'max:255'],
             'category_id' => ['required', 'exists:categories,id'],
-            'image' => ['required', 'image', 'max:10240'],
             'description' => ['required', 'string'],
             'artwork_date' => ['required', 'date'],
             'started_at' => ['nullable', 'date'],

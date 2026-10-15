@@ -30,7 +30,10 @@ class ArtworkController extends Controller
     {
         Gate::authorize('viewAny', Artwork::class);
 
-        $query = Artwork::with('category');
+        $query = Artwork::with([
+            'category',
+            'media',
+        ]);
 
         if ($request->filled('search')) {
             $search = $request->string('search')->toString();
@@ -86,11 +89,7 @@ class ArtworkController extends Controller
     {
         Gate::authorize('create', Artwork::class);
 
-        $validated = $request->validated();
-
-        $validated['image'] = '/storage/' . $request->file('image')->store('artworks', 'public');
-
-        Artwork::create($validated);
+        Artwork::create($request->validated());
 
         return redirect()->route('admin.artworks.index');
     }
@@ -99,45 +98,21 @@ class ArtworkController extends Controller
     {
         Gate::authorize('update', $artwork);
 
+        $artwork->load('media');
+
         return Inertia::render('admin/artworks/edit', [
-            'artwork' => [
-                'id' => $artwork->id,
-                'slug' => $artwork->slug,
-                'title' => $artwork->title,
-                'category_id' => $artwork->category_id,
-                'image' => $artwork->image,
-                'description' => $artwork->description,
-                'artwork_date' => $artwork->artwork_date?->format('Y-m-d'),
-                'started_at' => $artwork->started_at?->format('Y-m-d'),
-                'completed_at' => $artwork->completed_at?->format('Y-m-d'),
-                'duration' => $artwork->duration,
-                'price' => $artwork->price,
-            ],
+            'artwork' => $artwork,
             'categories' => Category::orderBy('name')->get(),
         ]);
     }
 
-    public function update(UpdateArtworkRequest $request, Artwork $artwork): RedirectResponse
-    {
+    public function update(
+        UpdateArtworkRequest $request,
+        Artwork $artwork
+    ): RedirectResponse {
         Gate::authorize('update', $artwork);
 
-        $validated = $request->validated();
-
-        if ($request->hasFile('image')) {
-            $newImagePath = $request->file('image')->store('artworks', 'public');
-
-            if ($artwork->image && str_starts_with($artwork->image, '/storage/')) {
-                Storage::disk('public')->delete(
-                    str_replace('/storage/', '', $artwork->image)
-                );
-            }
-
-            $validated['image'] = '/storage/' . $newImagePath;
-        } else {
-            unset($validated['image']);
-        }
-
-        $artwork->update($validated);
+        $artwork->update($request->validated());
 
         return redirect()->route('admin.artworks.index');
     }
@@ -146,10 +121,12 @@ class ArtworkController extends Controller
     {
         Gate::authorize('delete', $artwork);
 
-        if ($artwork->image && str_starts_with($artwork->image, '/storage/')) {
-            Storage::disk('public')->delete(
-                str_replace('/storage/', '', $artwork->image)
-            );
+        foreach ($artwork->media as $media) {
+            if (str_starts_with($media->path, '/storage/')) {
+                Storage::disk('public')->delete(
+                    str_replace('/storage/', '', $media->path)
+                );
+            }
         }
 
         $artwork->delete();

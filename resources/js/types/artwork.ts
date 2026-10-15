@@ -1,3 +1,4 @@
+import type { ArtworkMedia } from '@/types/artwork-media';
 import type { Category } from '@/types/category';
 
 export interface Artwork {
@@ -5,7 +6,8 @@ export interface Artwork {
     slug: string;
     title: string;
     category: Category;
-    image: string;
+    image: string | null;
+    media: ArtworkMedia[];
     description: string;
     artwork_date: string;
     started_at?: string;

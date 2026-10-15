@@ -12,17 +12,24 @@ export default function Create() {
     }
 
     return (
-        <div className="p-6">
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-semibold">Create Category</h1>
-
-                <Link href="/admin/categories">Back</Link>
-            </div>
-
-            <form onSubmit={handleSubmit} className="mt-6 max-w-xl space-y-4">
-                <div>
-                    <label htmlFor="name">Name</label>
-
+        <main className="mx-auto w-full max-w-300 px-6 py-12 md:px-8 md:py-16">
+            <p className="mb-4 font-sans text-[13px] tracking-[0.12em] text-terracotta uppercase">
+                Portfolio
+            </p>
+            <h1 className="font-display text-4xl leading-none font-light md:text-5xl">
+                Create Category
+            </h1>
+            <form
+                onSubmit={handleSubmit}
+                className="mt-12 max-w-xl border-y border-stone"
+            >
+                <div className="py-8">
+                    <label
+                        htmlFor="name"
+                        className="font-sans text-[13px] tracking-widest uppercase"
+                    >
+                        Name
+                    </label>
                     <input
                         id="name"
                         type="text"
@@ -30,24 +37,30 @@ export default function Create() {
                         onChange={(event) =>
                             form.setData('name', event.target.value)
                         }
-                        className="mt-1 block w-full rounded border px-3 py-2"
+                        className="mt-3 block h-12 w-full border border-stone bg-white px-4 text-sm outline-none focus:border-terracotta"
                     />
-
                     {form.errors.name && (
-                        <p className="mt-1 text-sm text-red-600">
+                        <p className="mt-2 text-sm text-terracotta">
                             {form.errors.name}
                         </p>
                     )}
                 </div>
-
-                <button
-                    type="submit"
-                    disabled={form.processing}
-                    className="rounded bg-black px-4 py-2 text-white"
-                >
-                    Create Category
-                </button>
+                <div className="flex items-center gap-6 border-t border-stone py-6">
+                    <button
+                        type="submit"
+                        disabled={form.processing}
+                        className="inline-flex h-11 items-center bg-terracotta px-6 font-sans text-[13px] tracking-widest text-white uppercase transition-colors hover:bg-terracotta-hover disabled:opacity-50"
+                    >
+                        {form.processing ? 'Creating...' : 'Create Category'}
+                    </button>
+                    <Link
+                        href="/admin/categories"
+                        className="border-b border-ink pb-1 font-sans text-[13px] tracking-widest uppercase hover:text-terracotta hover:border-b-terracotta"
+                    >
+                        Cancel
+                    </Link>
+                </div>
             </form>
-        </div>
+        </main>
     );
 }

@@ -20,11 +20,17 @@ export default function ArtworkCard({
     return (
         <Link href={href} className="group block">
             <div className={`${aspect} overflow-hidden bg-stone`}>
-                <img
-                    src={image}
-                    alt={title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                />
+                {image ? (
+                    <img
+                        src={image}
+                        alt={title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                ) : (
+                    <div className="flex h-full w-full items-center justify-center text-xs tracking-widest text-muted uppercase">
+                        No image
+                    </div>
+                )}
             </div>
 
             <div className="mt-4">

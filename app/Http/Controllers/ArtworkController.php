@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artwork;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -13,7 +11,10 @@ class ArtworkController extends Controller
     public function home(): Response
     {
         return Inertia::render('welcome', [
-            'artworks' => Artwork::with('category')
+            'artworks' => Artwork::with([
+                    'category',
+                    'media',
+                ])
                 ->orderBy('artwork_date', 'desc')
                 ->get(),
         ]);
@@ -22,7 +23,10 @@ class ArtworkController extends Controller
     public function index(): Response
     {
         return Inertia::render('gallery', [
-            'artworks' => Artwork::with('category')
+            'artworks' => Artwork::with([
+                    'category',
+                    'media',
+                ])
                 ->orderBy('artwork_date', 'desc')
                 ->get(),
         ]);
@@ -31,7 +35,10 @@ class ArtworkController extends Controller
     public function show(string $slug): Response
     {
         return Inertia::render('artwork', [
-            'artwork' => Artwork::with('category')
+            'artwork' => Artwork::with([
+                    'category',
+                    'media',
+                ])
                 ->where('slug', $slug)
                 ->firstOrFail(),
         ]);

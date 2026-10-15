@@ -57,6 +57,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::delete('/admin/categories/{category:slug}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])
             ->name('admin.categories.destroy');
+
+        Route::post(
+            '/admin/artworks/{artwork:slug}/media',
+            [\App\Http\Controllers\Admin\ArtworkMediaController::class, 'store']
+        )->name('admin.artworks.media.store');
+
+        Route::put(
+            '/admin/artworks/{artwork:slug}/media/{media}',
+            [\App\Http\Controllers\Admin\ArtworkMediaController::class, 'update']
+        )->name('admin.artworks.media.update');
+
+        Route::delete(
+            '/admin/artworks/{artwork:slug}/media/{media}',
+            [\App\Http\Controllers\Admin\ArtworkMediaController::class, 'destroy']
+        )->name('admin.artworks.media.destroy');
+
+        Route::put(
+            '/admin/artworks/{artwork:slug}/media/{media}/reorder',
+            [\App\Http\Controllers\Admin\ArtworkMediaController::class, 'reorder']
+        )->name('admin.artworks.media.reorder');
     });
 });
 

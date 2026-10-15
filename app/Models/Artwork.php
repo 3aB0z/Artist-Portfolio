@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Category;
 
 class Artwork extends Model
@@ -31,5 +32,11 @@ class Artwork extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function media(): HasMany
+    {
+        return $this->hasMany(ArtworkMedia::class)
+            ->orderBy('sort_order');
     }
 }
