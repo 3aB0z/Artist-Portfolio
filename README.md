@@ -1,6 +1,6 @@
 # Artist Portfolio
 
-An intimate online gallery for drawings and handmade clay figures. Artist Portfolio brings selected works, stories from the studio, and artwork details together in a quiet, editorial experience.
+A quiet, image-led gallery celebrating drawings and handmade clay figures. Artist Portfolio introduces the work, shares a glimpse into the artist’s practice, and gives each piece room to be explored.
 
 ## Preview
 
@@ -9,24 +9,26 @@ An intimate online gallery for drawings and handmade clay figures. Artist Portfo
 </p>
 
 <p align="center">
-  <em>A selection of drawings and small sculptural worlds, made by hand.</em>
+  <em>Drawings and small sculptural worlds, made by hand.</em>
 </p>
 
-## The experience
+## About the project
 
-- A considered homepage introducing the artist and selected works
-- A browsable gallery with drawing and clay sculpture filters
-- Individual pages for exploring each artwork
+Artist Portfolio is a personal online gallery for an independent artist. It brings together selected works and studio imagery in a warm, editorial setting where the artwork stays at the center.
+
+## Features
+
+- A welcoming homepage with featured works and an introduction to the studio
+- A gallery of drawings and handmade clay sculptures
+- Artwork categories to explore different kinds of work
+- Individual artwork pages with details and imagery
 - About and contact pages
-- A responsive layout with artwork-first imagery and restrained visual styling
-- Private content-management screens for artworks, categories, and artwork media
+- Responsive layouts for browsing on desktop and mobile
+- Artwork and category management for keeping the collection up to date
 
-## Built with
+## What you’ll find
 
-Laravel · React · TypeScript · Inertia.js · Tailwind CSS · Vite
-
-## Rights
-
-This is a project showcase, not a reusable starter or template. The project’s original source code, design, documentation, and artwork are proprietary and may not be reused without written permission. Third-party packages and assets remain subject to their own licenses.
-
-See [LICENSE](LICENSE) for the full notice.
+- **Drawings** — expressive work on paper
+- **Clay sculptures** — handmade figures shaped with texture and character
+- **Studio** — a glimpse into the artist’s workspace and creative process
+- **The collection** — a growing selection of finished pieces
